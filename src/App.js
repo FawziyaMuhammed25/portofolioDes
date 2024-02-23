@@ -1,25 +1,55 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/js/bootstrap.bundle'
+import {React } from "react";
+// import axios, { Axios } from "axios";
+import { BrowserRouter as Router , Routes , Route } from "react-router-dom";
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { fab } from '@fortawesome/free-brands-svg-icons'
+import { fas } from '@fortawesome/free-solid-svg-icons'
+import { far } from '@fortawesome/free-regular-svg-icons'
+ import "./App.css" ;
+import Header from './components/Header';
+import Main from './components/Main';
+import Skills from './components/Skills';
+import Projects from './components/Projects';
+import Connect from './components/Connect';
+import OneSection from './components/OneSection'
+import TwoSection from './components/TwoSection';
+import ThreeSection from './components/ThreeSection';
+import Footer from './components/Footer';
+const App =()=>
+{
+  
+   
+ return(
+  
+    <>
+       <Router>
+       
+         <Header/>
+         <Routes>
+            <Route path='/' element={<Main/>} />
+           <Route path="/home" element={<Main/>}>
+               <Route path='onesection' element ={<OneSection/>} />
+                <Route path='twoSection' element ={<TwoSection/>}/>
+                <Route path='threeSection' element ={<ThreeSection/>}/>
+           </Route>
+            <Route path='/skills' element ={<Skills/>}/>
+           <Route path='/projects' element={<Projects/>}>
+               <Route path='onesection' element ={<OneSection/>} />
+                <Route path='twoSection' element ={<TwoSection/>}/>
+                <Route path='threeSection' element ={<ThreeSection/>}/>
+            </Route>
+           
+           <Route path='/connect' element={<Connect/>}/>
+           <Route path='*' element={<h2 className='text-center'>NotFound</h2>}/>
+         </Routes>
+         <Footer/>
+       </Router>
+     
+    </>
+ );
 }
 
 export default App;
+library.add(fab, fas, far);
