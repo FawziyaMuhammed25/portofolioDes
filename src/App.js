@@ -16,7 +16,7 @@ import Connect from './components/Connect';
 import OneSection from './components/OneSection'
 import TwoSection from './components/TwoSection';
 import ThreeSection from './components/ThreeSection';
-
+import Footer from './components/Footer';
 const App =()=>
 {
   
@@ -44,7 +44,7 @@ const App =()=>
            <Route path='/connect' element={<Connect/>}/>
            <Route path='*' element={<h2 className='text-center'>NotFound</h2>}/>
          </Routes>
-        
+         <Footer/>
        </Router>
      
     </>
